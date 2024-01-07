@@ -6,7 +6,7 @@ For initial installs, simple run the script utilizing the -a option to install a
 ### Usage
 ```
 bash ./browser-smartcard-setup.sh [-a] [-c] [-r]
-You must select ONE option. In most cases, you will want the -a option if this is a first run to install all the things. This was also not tested with chrome/chromium via snap/flatpak - you're on your own if you installed via either of those mechanisms.
+You must select ONE option. In most cases, you will want the -a option if this is a first run to install all the things. This will not work with chrome/chromium installed via snap/flatpak (https://github.com/flatpak/flatpak/issues/4723). 
 
 	 -a installs all requirements and configurations.
 	 -c install CAC module only.

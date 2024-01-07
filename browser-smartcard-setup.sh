@@ -23,7 +23,7 @@ source /etc/os-release
 help_menu() {
   echo -e "bash ./$(basename "$0") [-a] [-c] [-r]"
   echo -ne "You must select ONE option. In most cases, you will want the -a option if this is a first run to install all the things. "
-  echo -e "This was also not tested with chrome/chromium via snap/flatpak - you're on your own if you installed via either of those mechanisms.\n"
+  echo -e "This will not work with chrome/chromium installed via snap/flatpak (ref. https://github.com/flatpak/flatpak/issues/4723).\n"
   echo -e "\t-a installs all requirements and configurations."
   echo -e "\t-c install CAC module only."
   echo -e "\t-r remove CAC module only."
