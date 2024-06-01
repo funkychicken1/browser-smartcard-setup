@@ -149,7 +149,6 @@ while getopts :acr opt; do
       install_binaries
       nssdb_create
       nssdb_removecerts
-      add_cacmodule
       download_certs
       install_certs
       # list what we have loaded
@@ -159,8 +158,7 @@ while getopts :acr opt; do
       ;;
     c)
       install_binaries
-      # add module for reader - make sure chrom(e|ium) instances are closed
-      # Checking to see if the PKCS11 module has already been added to nssdb 
+      # Checking to see if the PKCS11 module has already been added to nssdb
       add_cacmodule
       ;;
     r)
