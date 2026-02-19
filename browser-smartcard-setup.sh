@@ -44,15 +44,22 @@ fi
 
 install_binaries() {
   echo -e "${GREEN}Installing required binaries...${NC}"
-  case $ID_LIKE in
+  
+  # Use ID_LIKE if set and non-empty, otherwise fall back to ID
+  local DISTRO_ID="${ID_LIKE:-$ID}"
+  
+  case $DISTRO_ID in
     *rhel*)
       $SUDO dnf install nss-tools pcsc-lite perl-pcsc pcsc-tools ccid opensc -y
       ;;
     *debian*)
       $SUDO apt install libnss3-tools pcsc-tools libpcsc-perl libccid opensc -y
       ;;
+    *arch*)
+      $SUDO pacman -S --noconfirm nss ccid opensc pcsc-tools
+      ;;
     *) 
-      echo -e "${RED}Linux Distribution not currently supported [$ID_LIKE].${NC}" && exit 1
+      echo -e "${RED}Linux Distribution not currently supported [$DISTRO_ID].${NC}" && exit 1
       ;;
   esac
 }
